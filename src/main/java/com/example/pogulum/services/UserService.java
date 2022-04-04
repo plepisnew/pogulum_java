@@ -1,4 +1,4 @@
 package com.example.pogulum.services;
 
-public interface ClipService {
+public interface UserService {
 }

@@ -1,2 +1,4 @@
-package com.example.pogulum.controllers;public class ClipController {
+package com.example.pogulum.controllers;
+
+public class ClipController {
 }

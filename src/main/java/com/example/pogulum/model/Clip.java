@@ -1,2 +1,4 @@
-package com.example.pogulum.model;public class Clip {
+package com.example.pogulum.model;
+
+public class Clip {
 }

@@ -1,2 +1,4 @@
-package com.example.pogulum.controllers;public class UserController {
+package com.example.pogulum.controllers;
+
+public class UserController {
 }

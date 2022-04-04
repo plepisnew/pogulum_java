@@ -1,2 +1,4 @@
-package com.example.pogulum.services.impl;public class ClipServiceImpl {
+package com.example.pogulum.services.impl;
+
+public class ClipServiceImpl {
 }

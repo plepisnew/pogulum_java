@@ -1,2 +1,67 @@
-package com.example.pogulum.util;public class Json {
+package com.example.pogulum.util;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.type.CollectionLikeType;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class Json {
+
+    private static Json instance;
+
+    public static Json getInstance(){
+        instance = instance == null ? new Json() : instance;
+        return instance;
+    }
+
+    private Json(){
+        this.json = new ObjectMapper();
+        this.jsonWriter = json.writer(new DefaultPrettyPrinter());
+    }
+
+    private ObjectMapper json;
+    private ObjectWriter jsonWriter;
+
+    /*
+     * Converting Object to Pretty JSON String (2 additional methods for specifying Type)
+     */
+
+    public <T> String stringify(Object value, Class<T> type) throws JsonProcessingException {
+        jsonWriter.writeValueAsString(value);
+        return jsonWriter.forType(type).writeValueAsString(value);
+    }
+
+    public <T> String stringify(Object value) throws JsonProcessingException {
+        jsonWriter.writeValueAsString(value);
+        return jsonWriter.writeValueAsString(value);
+    }
+
+    public <T> String stringifyList(Collection<T> value, Class<T> type) throws JsonProcessingException {
+        ArrayList<T> list = new ArrayList<T>(value);
+        final CollectionLikeType listType = json.getTypeFactory().constructCollectionType(ArrayList.class, type);
+        return jsonWriter.forType(listType).writeValueAsString(list);
+    }
+
+    public <T> String stringifyList(Collection<T> value) throws JsonProcessingException {
+        return jsonWriter.writeValueAsString(value);
+    }
+
+    /*
+     * Parsing from String to Object
+     */
+
+    public <T> T parse(String jsonString, Class<T> type) throws IOException {
+        return json.readValue(jsonString, type);
+    }
+
+    public <T> T parseList(String jsonString, Class<T> type) throws IOException {
+        final CollectionLikeType listType = json.getTypeFactory().constructCollectionType(ArrayList.class, type);
+        return json.readValue(jsonString, listType);
+    }
+
 }
