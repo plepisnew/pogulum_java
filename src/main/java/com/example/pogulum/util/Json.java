@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.type.CollectionLikeType;
 
 import java.io.IOException;
@@ -20,11 +21,13 @@ public class Json {
     }
 
     private Json(){
-        this.json = new ObjectMapper();
-        this.jsonWriter = json.writer(new DefaultPrettyPrinter());
+        this.mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+        this.jsonWriter = mapper.writer(new DefaultPrettyPrinter());
     }
 
-    private ObjectMapper json;
+    private ObjectMapper mapper;
     private ObjectWriter jsonWriter;
 
     /*
@@ -32,23 +35,21 @@ public class Json {
      */
 
     public <T> String stringify(Object value, Class<T> type) throws JsonProcessingException {
-        jsonWriter.writeValueAsString(value);
         return jsonWriter.forType(type).writeValueAsString(value);
     }
 
     public <T> String stringify(Object value) throws JsonProcessingException {
-        jsonWriter.writeValueAsString(value);
-        return jsonWriter.writeValueAsString(value);
+        return mapper.writeValueAsString(value);
     }
 
     public <T> String stringifyList(Collection<T> value, Class<T> type) throws JsonProcessingException {
         ArrayList<T> list = new ArrayList<T>(value);
-        final CollectionLikeType listType = json.getTypeFactory().constructCollectionType(ArrayList.class, type);
+        final CollectionLikeType listType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, type);
         return jsonWriter.forType(listType).writeValueAsString(list);
     }
 
     public <T> String stringifyList(Collection<T> value) throws JsonProcessingException {
-        return jsonWriter.writeValueAsString(value);
+        return mapper.writeValueAsString(value);
     }
 
     /*
@@ -56,12 +57,12 @@ public class Json {
      */
 
     public <T> T parse(String jsonString, Class<T> type) throws IOException {
-        return json.readValue(jsonString, type);
+        return mapper.readValue(jsonString, type);
     }
 
     public <T> T parseList(String jsonString, Class<T> type) throws IOException {
-        final CollectionLikeType listType = json.getTypeFactory().constructCollectionType(ArrayList.class, type);
-        return json.readValue(jsonString, listType);
+        final CollectionLikeType listType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, type);
+        return mapper.readValue(jsonString, listType);
     }
 
 }

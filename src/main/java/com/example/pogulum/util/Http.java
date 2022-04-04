@@ -14,6 +14,9 @@ public class Http {
         return instance;
     }
 
+    private final String TOKEN = "";
+    private final String CLIENT_ID = "";
+
     private Http(){
     }
 
@@ -26,6 +29,16 @@ public class Http {
                 .GET()
                 .build();
 
+        return client.send(req, HttpResponse.BodyHandlers.ofString());
+    }
+
+    public HttpResponse<String> authGet(String endpoint) throws IOException, InterruptedException {
+        final HttpRequest req = HttpRequest
+                .newBuilder(URI.create(endpoint))
+                .GET()
+                .header("Authorization", "Bearer " + TOKEN)
+                .header("Client-Id", CLIENT_ID)
+                .build();
         return client.send(req, HttpResponse.BodyHandlers.ofString());
     }
 }
