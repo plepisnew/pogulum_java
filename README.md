@@ -13,12 +13,12 @@ Get Clips -> Filter -> Edit -> Upload
 Entities are saved to a local DB by sending a POST request to the corresponding endpoint.
 
 # Web endpoints:
-/home - HTML template: cip link -> video source
+/home - HTML template: clip link -> video source
 
 TODO:
 -fix cors
 -fix black magic (.split("-social-preview") working only 50% of time)
 
 TRY:
--given username (or id), list clips according to params (view count, date, first-after, game etc)
--select clips and use downloadFile(combineFiles(files)) to get the final mp4
+- given username (or id), list clips according to params (view count, date, first-after, game etc)
+- select clips and use downloadFile(combineFiles(files)) to get the final mp4
