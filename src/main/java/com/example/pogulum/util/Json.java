@@ -27,8 +27,8 @@ public class Json {
         this.jsonWriter = mapper.writer(new DefaultPrettyPrinter());
     }
 
-    private ObjectMapper mapper;
-    private ObjectWriter jsonWriter;
+    private final ObjectMapper mapper;
+    private final ObjectWriter jsonWriter;
 
     /*
      * Converting Object to Pretty JSON String (2 additional methods for specifying Type)

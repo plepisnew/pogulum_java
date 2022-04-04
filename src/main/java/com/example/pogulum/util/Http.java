@@ -1,4 +1,6 @@
 package com.example.pogulum.util;
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.*;
@@ -38,6 +40,14 @@ public class Http {
                 .GET()
                 .header("Authorization", "Bearer " + TOKEN)
                 .header("Client-Id", CLIENT_ID)
+                .build();
+        return client.send(req, HttpResponse.BodyHandlers.ofString());
+    }
+
+    public HttpResponse<String> post(String endpoint, Object value) throws IOException, InterruptedException {
+        final HttpRequest req = HttpRequest
+                .newBuilder(URI.create(endpoint))
+                .POST(HttpRequest.BodyPublishers.ofString(Json.getInstance().stringify(value)))
                 .build();
         return client.send(req, HttpResponse.BodyHandlers.ofString());
     }
