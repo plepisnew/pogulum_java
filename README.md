@@ -16,8 +16,8 @@ Entities are saved to a local DB by sending a POST request to the corresponding 
 /home - HTML template: clip link -> video source
 
 TODO:
--fix cors
--fix black magic (.split("-social-preview") working only 50% of time)
+- fix cors
+- fix black magic (.split("-social-preview") working only 50% of time)
 
 TRY:
 - given username (or id), list clips according to params (view count, date, first-after, game etc)
