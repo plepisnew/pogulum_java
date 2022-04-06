@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pogulum</title>
+    <link rel="stylesheet" href="styles/page.css" />
+    <link rel="stylesheet" href="styles/image.css" />
+    <link rel="stylesheet" href="styles/text.css" />
+    <link rel="stylesheet" href="styles/user.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Rubik:wght@300;400;500&family=Source+Sans+Pro:wght@200;300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="left-panel">
+      <div class="icon-container">
+        <img class="icon-image" src="imgs/tcs.png" />
+        <a href="http://github.com/plepisnew/pogulum" target="_blank">
+            <img class="github-image" src="imgs/github.png" />
+        </a>
+      </div>
+      <div class="about-container">
+        <p class="about"><span class="emph">About:</span> Twitch Clip finder, filterer, concatenator, uploader.
+        </p>
+      </div>
+      <div class="usage-container">
+        <p class="usage">
+          <span class="emph">How to use:</span>
+        <p class="usage">1. Find clips based on Category, Twitch Username, Clip ID</p>
+        <p class="usage">2. Sort clips according to selected metric </p>
+        <p class="usage">3. Select clips to merge</p>
+        <p class="usage">4. Download .mp4 file OR upload to YouTube</p>
+        </p>
+      </div>
+      <div class="user-container">
+          <div class="input-container">
+                <input id="category-input" class="user-input" type="text" placeholder="Category">
+                <input id="username-input" class="user-input" type="text" placeholder="Twitch Username">
+                <input id="clip-input" class="user-input" type="text", placeholder="Clip ID">
+                <button id="find-clips" class="search-button">
+                    Find clips
+                </button>
+          </div>
+          <div class="visual-selection">
+
+          </div>
+          <script type="module" src="scripts/init.js"></script>
+
+      </div>
+    </div>
+    <div class="right-panel">
+
+    </div>
+  </body>
+</html>

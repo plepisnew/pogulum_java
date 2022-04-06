@@ -1,0 +1,17 @@
+.about,
+.usage {
+    font-family: Rubik;
+    color: white;
+    font-size: 18px;
+}
+
+.about-container,
+.usage-container {
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.emph{
+    font-size: 20px;
+    font-weight: 500;
+}
