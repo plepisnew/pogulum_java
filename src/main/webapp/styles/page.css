@@ -1,0 +1,27 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+p{
+    margin: 0;
+}
+
+.left-panel,
+.right-panel {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+}
+
+.left-panel{
+    background-image: linear-gradient(rgb(25, 118, 210), rgb(33, 150, 243));
+    left: 0;
+}
+
+.right-panel{
+    background-image: linear-gradient(rgb(33, 150, 243), rgb(25, 118, 210));
+    right: 0;
+}
+

@@ -1,0 +1,51 @@
+.user-container{
+    
+    height: 1fr;
+}
+
+.user-input{
+    font-family: Rubik;
+    font-size: 18px;
+    border-radius: 7px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(57, 73, 171);
+    background-color: rgb(179, 229, 252);
+    padding-left: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 170px;
+    color: rgb(74, 20, 140);
+    transition: background-color 0.5s;
+}
+
+.user-input:hover{
+    background-color: rgb(225, 245, 254);
+}
+
+.input-container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.search-button{
+    font-family: Rubik;
+    border-radius: 2px;
+    font-size: 18px;
+    border: none;
+    background-color: rgb(57, 73, 171);
+    color: white;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 2px 2px 4px rgb(0, 0, 0, 0.6);
+    transition: opacity 0.4s;
+}
+.search-button:hover{
+    opacity: 0.8;
+}
+
+.search-button:active{
+    box-shadow: 1px 1px 4px rgb(0, 0, 0, 0.6);
+}

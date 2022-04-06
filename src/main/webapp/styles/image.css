@@ -1,0 +1,18 @@
+.icon-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.icon-image{
+    border-radius: 17px;
+    box-shadow: 2px 2px 4px rgba(20, 20, 20, 0.5);
+    height: 60px;
+
+}
+
+.github-image{
+    width: 60px;
+}
