@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="jquery-3.6.0.js"></script>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+<button class="page-button">Back</button>
+
+<a href="_blank" class="page-number">1</a>
+<a href="_blank" class="page-number">2</a>
+<a href="_blank" class="page-number">3</a>
+<a href="_blank" class="page-number">4</a>
+<a href="_blank" class="page-number">5</a>
+<button class="page-button">Next</button>
+
+<style>
+  .page-number {
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+  .page-button {
+    margin-left: 4px;
+    margin-right: 4px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+</style>
+<br />
+<br />
+<button class="stretch-button">Stretch</button>
+<style>
+  .stretch-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    transition: padding-left 1s, padding-right 1s, padding-top 1s,
+    padding-bottom 1s;
+  }
+  .stretch-button:hover {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+</style>
+<br />
+<br />
+<button class="shadow">Shadow</button>
+<style>
+  .shadow {
+    font-size: 30px;
+    border: none;
+    background-color: green;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    box-shadow: 4px 4px 5px rgb(180, 180, 180);
+    cursor: pointer;
+  }
+  .shadow:active {
+    box-shadow: none;
+    margin-left: 4px;
+    margin-top: 4px;
+  }
+</style>
+<br />
+<br />
+<button class="expand">One</button>
+<button class="expand">Two</button>
+<button class="expand">Three</button>
+<style>
+  .expand {
+    font-size: 20px;
+    border: none;
+    background-color: green;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 7px;
+    margin-right: 7px;
+    transition: padding-left 0.2s, padding-right 0.2s, margin-left 0.2s,
+    margin-right 0.2s;
+  }
+  .expand:hover {
+    padding-left: 15px;
+    margin-left: 2px;
+    padding-right: 15px;
+    margin-right: 2px;
+  }
+</style>
+<!-- <iframe
+  src="https://clips.twitch.tv/embed?clip=HelplessRealTroutMrDestructoid-ML9xuctUZdKy8nOR&parent=127.0.0.1"
+  frameborder="0"
+  allowfullscreen="true"
+  scrolling="no"
+  height="189"
+  width="320"
+></iframe> -->
+</br>
+<br>
+<input id="link-input" type="text" placeholder="Input link" />
+<button id="test">Submit</button>
+<br>
+<br>
+<a id="clip-source">Twitch Clip source</a>
+<script>
+  const button = document.getElementById("test");
+  button.onclick = function () {
+    const content = document.querySelector('input').value;
+
+    function makeHttpObject() {
+      try {return new XMLHttpRequest();}
+      catch (error) {}
+      try {return new ActiveXObject("Msxml2.XMLHTTP");}
+      catch (error) {}
+      try {return new ActiveXObject("Microsoft.XMLHTTP");}
+      catch (error) {}
+
+      throw new Error("Could not create HTTP request object.");
+    }
+
+    let data;
+    var request = makeHttpObject();
+    request.open("GET", content, true);
+    request.send(null);
+    request.onreadystatechange = function() {
+      if (request.readyState == 4)
+        console.log(request.responseText);
+      data = request.responseText;
+      let clip_id = data.split("clips-media-assets2.twitch.tv/")[1].split("-social-preview")[0]
+      let clip_src = "https://clips-media-assets2.twitch.tv/" + clip_id + ".mp4"
+      console.log(clip_src);
+      document.getElementById("clip-source").href = clip_src;
+    };
+
+
+  }
+
+</script>
+</body>
+</html>
