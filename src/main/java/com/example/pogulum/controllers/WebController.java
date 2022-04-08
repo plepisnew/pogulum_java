@@ -9,8 +9,6 @@ public class WebController {
 
     @GetMapping("/home")
     public ModelAndView home(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("no-jquery");
-        return mv;
+        return new ModelAndView("index.html");
     }
 }

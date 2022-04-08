@@ -1,6 +1,5 @@
 .user-container{
     
-    height: 1fr;
 }
 
 .user-input{
@@ -27,6 +26,7 @@
     margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 20px
 }
 
 .search-button{
@@ -48,4 +48,78 @@
 
 .search-button:active{
     box-shadow: 1px 1px 4px rgb(0, 0, 0, 0.6);
+}
+
+.game-selection {
+    display: inline-block;
+    margin-left: 12px;
+    width: 70%;
+}
+
+.channel-selection { 
+    display: inline-block;
+    width: 25%;
+}
+
+.game-grid { 
+    grid-template-columns: 100px, 100px;
+}
+
+.clickable-game {
+    border-radius: 10px;
+    width: 80px;
+    cursor: pointer;
+    opacity: 0.9;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    transition: opacity 0.5s;
+    transition: border-radius 0.5s;
+}
+.clickable-game:active {
+    box-shadow: none;
+}
+
+.clickable-game:hover {
+    border-radius: 18px;
+    opacity: 1;
+}
+
+.popular-games,
+.popular-channels {
+    font-family: Rubik;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.popular-games {
+    grid-column-start: 6;
+}
+
+.popular-channels {
+    grid-column-start: 13;
+}
+
+.popular-paragraphs {
+    display: grid;
+    grid-template-columns: repeat(10px)
+}
+
+.clickable-channel {
+    width: 78px;
+    border-radius: 50px;
+    cursor: pointer;
+    opacity: 0.9;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
+    transition: border-radius 0.5s;
+    transition: opacity 0.5s;
+    margin-left: 10px;
+}
+
+.clickable-channel:hover {
+    opacity: 1;
+}
+
+.clickable-channel:active {
+    box-shadow: none;
 }

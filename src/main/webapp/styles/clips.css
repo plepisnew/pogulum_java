@@ -1,0 +1,26 @@
+
+.fetched-clips {
+    height: 50%;
+    width: 100%;
+}
+
+.clip-preview {
+    height: 50%;
+    width: 100%;
+    background: blue;
+}
+
+.scroll-bg {
+    /* background: white; */
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.scroll-bg::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll {
+    padding: 10px;
+}

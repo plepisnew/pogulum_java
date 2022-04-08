@@ -36,11 +36,3 @@ public class ClipController {
 
 
 }
-  
-  
-  
-  
-  
-  
-  
-}
