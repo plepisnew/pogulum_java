@@ -11,6 +11,7 @@ Status 📄
 - [ ] Download final video locally
 - [ ] Upload final clip to YouTube
 - [ ] Upload final clip to TikTok
+- [ ] Instead of hard-coded games, find top games from Twitch API
 
 Our Stack 📦
 -
