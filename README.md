@@ -1,4 +1,4 @@
-Pogulum: Twitch Clip Scraper
+Pogulum: Twitch Clip Scraper 📹
 -
 Pogulum is a free and open-source online Twitch clip scraper, which interacts with the [Twitch API](https://dev.twitch.tv/docs/api/) to fetch clips based on user-selected filters and the [YouTube Data API](https://developers.google.com/youtube/v3) to upload concatenated clips directly to YouTube OR download it as an .mp4 file.
 
@@ -12,7 +12,7 @@ Resources:
 - `api/clips` : GET all clips in the database
 - `home` : User Interface for fetching and downloading clips
 
-Our Stack
+Our Stack 📦
 -
 - Build Tool: Maven
 - Back-end: Java Spring Boot
@@ -20,7 +20,7 @@ Our Stack
 - Database: PostgreSQL
 - AWS for deployment onto cloud
 
-Status
+Status 📄
 -
 - [x] Fetch clips from the Twitch API
 - [ ] Display clips and move using pagination
@@ -29,18 +29,18 @@ Status
 - [ ] Upload final clip to YouTube
 - [ ] Upload final clip to TikTok
 
-Additional parameters
+Additional parameters ⚙️
 -
 
 1. To fetch data from the Twitch API, authorization is necessary, for which a Client ID and App Access Token is required. By default we use hardcoded values, but users may provide their own auth credentials.
 
 2. By default the Twitch API returns 20 clips up to a maximum of 100 clips. Our API fetches 50 clips by default; this can be adjusted according to user input.
 
-How?
+How? 🧠
 -
 magic :P
 
-Q&A
+Q&A ❓
 -
 > Q: My parents disowned me :(
 > A: lol
@@ -48,7 +48,7 @@ Q&A
 > Q: I selected a Game and User but it didn't find any clips :(  
 > A: The Twitch API, when fetching clips, doesn't allow parameters for both games and users, so our API fetches clips according to whichever input comes first and filters the results based on the second input (if any). If you scroll to the right, you will eventually find a set of clips where at least one matches both filters and will be displayed.
 
-Contact Devs
+Contact Devs ✉️
 -
 Kārlis: `val.karlis@gmail.com` and `E-Val#5668`
 Soundharya: `soundhy123@gmail.com` and `Soundharya#1921`
