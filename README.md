@@ -39,11 +39,16 @@ Additional parameters ⚙️
 
 How? 🧠
 -
-magic :P
+
+1. User inputs high-level data (Twitch Username and/or category name)
+2. A Request is sent to `https://api.twitch.tv/helix/users?login=$channel` and `https://api.twitch.tv/helix/games?name=$game`, returning (among other data) `broadcaster_id` and `game_id` respectively.
+3. A Request is sent to `https://api.twitch.tv/helix/clips?game_id=$game&first=$X`, which returns the first X (descending view count) clips, which are then filtered according to a user-provided category (and vice versa) and displayed.
+4.  To scroll, a Request is sent to the same endpoint with an additional parameter `after=$cursor`, where `$cursor` is the pagination value from the previous Request body. [Twitch Pagination](https://dev.twitch.tv/docs/api/guide#pagination)
+5. Selected clips are combined into a single file and uploaded to YouTube or TikTok [..]
 
 Q&A ❓
 -
-> Q: My parents disowned me :(
+> Q: My parents disowned me :(  
 > A: lol
 
 > Q: I selected a Game and User but it didn't find any clips :(  
