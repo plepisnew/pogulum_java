@@ -15,10 +15,7 @@ Entities are saved to a local DB by sending a POST request to the corresponding 
 # Web endpoints:
 /home - HTML template: clip link -> video source
 
-TODO:
-- fix cors
-- fix black magic (.split("-social-preview") working only 50% of time)
+# FAQ:
 
-TRY:
-- given username (or id), list clips according to params (view count, date, first-after, game etc)
-- select clips and use downloadFile(combineFiles(files)) to get the final mp4
+Q: I selected a Game and User but it didn't find any clips :(
+A: The Twitch API, when fetching clips, doesn't allow parameters for both games and users, so our API fetches clips according to whichever input comes first and filters the results based on the second input (if any). If you scroll to the right, you will eventually find a set of clips where at least one matches both filters and will be displayed.
