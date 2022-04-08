@@ -50,8 +50,8 @@ Q&A ❓
 
 Contact Devs ✉️
 -
-Kārlis: `val.karlis@gmail.com` and `E-Val#5668`
-Soundharya: `soundhy123@gmail.com` and `Soundharya#1921`
-Ansis:  `plepis.jaunais@gmail.com` and  `ansishihi#8449`
+Kārlis: `val.karlis@gmail.com` and `E-Val#5668`  
+Soundharya: `soundhy123@gmail.com` and `Soundharya#1921`  
+Ansis:  `plepis.jaunais@gmail.com` and  `ansishihi#8449`  
 
 
