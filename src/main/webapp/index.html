@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="styles/text.css" />
     <link rel="stylesheet" href="styles/user.css" />
     <link rel="stylesheet" href="styles/clips.css" />
+    <link rel="stylesheet" href="styles/dragdrop.css" />
+    <link rel="stylesheet" href="styles/tooltip.css" />
+    <script src="scripts/clickables.js" defer></script>
+    <script src="scripts/init.js" defer></script>
+    <script src="scripts/filter.js" defer></script>
+    <script src="scripts/dragdrop.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,107 +23,221 @@
       rel="stylesheet"
     />
   </head>
-  <body style="overflow: hidden;">
+  <body style="overflow: hidden">
     <div class="left-panel">
       <div class="icon-container">
         <img class="icon-image" src="imgs/tcs.png" />
         <a href="http://github.com/plepisnew/pogulum" target="_blank">
-            <img class="github-image" src="imgs/github.png" />
+          <img class="github-image" src="imgs/github.png" />
         </a>
       </div>
       <div class="about-container">
-        <p class="about"><span class="emph">About:</span> Twitch Clip finder, filterer, concatenator, uploader.
+        <p class="about">
+          <span class="emph">About:</span> Twitch Clip finder, filterer,
+          concatenator, uploader.
         </p>
-      </div>
-      <div class="usage-container">
         <p class="usage">
           <span class="emph">How to use:</span>
-        <p class="usage">1. Find clips based on Category, Twitch Username OR Clip ID</p>
-        <p class="usage">2. Sort clips according to selected metric </p>
+        </p>
+        <p class="usage">
+          1. Find clips based on Category, Twitch Username OR Clip ID
+        </p>
+        <p class="usage">2. Scroll through the chasm of clips</p>
         <p class="usage">3. Select clips to merge</p>
         <p class="usage">4. Download .mp4 file OR upload to YouTube</p>
-        </p>
       </div>
       <div class="user-container">
-          <div class="input-container">
-                <input id="category-input" class="user-input" type="text" placeholder="Category">
-                <input id="username-input" class="user-input" type="text" placeholder="Twitch Username">
-                <input id="clip-input" class="user-input" type="text", placeholder="Clip ID">
-                <button id="find-clips" class="search-button">
-                    Find clips
-                </button>
+        <div class="input-container">
+          <input
+            id="category-input"
+            class="user-input"
+            type="text"
+            placeholder="Category"
+          />
+          <input
+            id="username-input"
+            class="user-input"
+            type="text"
+            placeholder="Twitch Username"
+          />
+          <input
+            id="clip-input"
+            class="user-input"
+            type="text"
+            ,
+            placeholder="Clip ID"
+          />
+          <button id="find-clips" class="search-button">Find clips</button>
+        </div>
+
+        <div class="popular-paragraphs">
+          <p class="popular-games">Popular Games</p>
+          <p class="popular-channels">Popular Channels</p>
+        </div>
+
+        <div class="game-selection">
+          <div class="game-grid">
+            <img
+              class="clickable-game"
+              id="chatting"
+              src="imgs/games/chatting.jpg"
+            />
+            <img
+              class="clickable-game"
+              id="fortnite"
+              src="imgs/games/fortnite.jpg"
+            />
+            <img
+              class="clickable-game"
+              id="apex"
+              src="imgs/games/apex-legends.jpg"
+            />
+            <img
+              class="clickable-game"
+              id="elden"
+              src="imgs/games/elden-ring.jpg"
+            />
+            <img
+              class="clickable-game"
+              id="hearthstone"
+              src="imgs/games/hearthstone.jpg"
+            />
+            <img class="clickable-game" id="lol" src="imgs/games/lol.jpg" />
+            <img
+              class="clickable-game"
+              id="lost"
+              src="imgs/games/lost-ark.jpg"
+            />
+            <img
+              class="clickable-game"
+              id="minecraft"
+              src="imgs/games/minecraft.jpg"
+            />
+            <img
+              class="clickable-game"
+              id="valorant"
+              src="imgs/games/valorant.jpg"
+            />
+            <img
+              class="clickable-game"
+              id="amogus"
+              src="imgs/games/amogus.jpg"
+            />
+            <img class="clickable-game" id="csgo" src="imgs/games/csgo.jpg" />
+            <img class="clickable-game" id="tft" src="imgs/games/tft.jpg" />
+            <img class="clickable-game" id="fifa" src="imgs/games/fifa.jpg" />
+            <img class="clickable-game" id="gtav" src="imgs/games/gtav.jpg" />
+            <img
+              class="clickable-game"
+              id="yugioh"
+              src="imgs/games/yugioh.jpg"
+            />
+            <img class="clickable-game" id="dbd" src="imgs/games/dbd.jpg" />
+            <img
+              class="clickable-game"
+              id="overwatch"
+              src="imgs/games/overwatch.jpg"
+            />
+            <img
+              class="clickable-game"
+              id="genshin"
+              src="imgs/games/genshin.jpg"
+            />
           </div>
-
-          <div class="popular-paragraphs">
-              <p class="popular-games">Popular Games</p>
-              <p class="popular-channels">Popular Channels</p>
-            </div>
-          
-
-          <div class="game-selection">
-            <div class="game-grid">
-              <img class="clickable-game" id="chatting" src="imgs/games/chatting.jpg">
-              <img class="clickable-game" id="fortnite" src="imgs/games/fortnite.jpg">
-              <img class="clickable-game" id="apex" src="imgs/games/apex-legends.jpg">
-              <img class="clickable-game" id="elden" src="imgs/games/elden-ring.jpg">
-              <img class="clickable-game" id="hearthstone" src="imgs/games/hearthstone.jpg">
-              <img class="clickable-game" id="lol" src="imgs/games/lol.jpg">
-              <img class="clickable-game" id="lost" src="imgs/games/lost-ark.jpg">
-              <img class="clickable-game" id="minecraft" src="imgs/games/minecraft.jpg">
-              <img class="clickable-game" id="valorant" src="imgs/games/valorant.jpg">
-              <img class="clickable-game" id="amogus" src="imgs/games/amogus.jpg">
-              <img class="clickable-game" id="csgo" src="imgs/games/csgo.jpg">
-              <img class="clickable-game" id="tft" src="imgs/games/tft.jpg">
-              <img class="clickable-game" id="fifa" src="imgs/games/fifa.jpg">
-              <img class="clickable-game" id="gtav" src="imgs/games/gtav.jpg">
-              <img class="clickable-game" id="yugioh" src="imgs/games/yugioh.jpg">
-              <img class="clickable-game" id="dbd" src="imgs/games/dbd.jpg">
-              <img class="clickable-game" id="overwatch" src="imgs/games/overwatch.jpg">
-              <img class="clickable-game" id="genshin" src="imgs/games/genshin.jpg">
+        </div>
+        <div class="channel-selection">
+          <div style="display: inline-block">
+            <div class="channel-grid">
+              <img
+                class="clickable-channel"
+                id="anomaly"
+                src="imgs/channels/anomaly.jpg"
+              />
+              <img
+                class="clickable-channel"
+                id="brownman"
+                src="imgs/channels/brownman.jpg"
+              />
+              <img
+                class="clickable-channel"
+                id="ninja"
+                src="imgs/channels/ninja.jpg"
+              />
+              <img
+                class="clickable-channel"
+                id="shroud"
+                src="imgs/channels/shroud.png"
+              />
+              <img
+                class="clickable-channel"
+                id="soda"
+                src="imgs/channels/soda.png"
+              />
+              <img
+                class="clickable-channel"
+                id="summit"
+                src="imgs/channels/summit.jpg"
+              />
+              <img
+                class="clickable-channel"
+                id="tyler"
+                src="imgs/channels/tyler.png"
+              />
+              <img
+                class="clickable-channel"
+                id="xqc"
+                src="imgs/channels/xqc.jpeg"
+              />
             </div>
           </div>
-          <div class="channel-selection">
-
-            <div style="display: inline-block; ">
-              <div class="channel-grid">
-                <img class="clickable-channel" id="anomaly" src="imgs/channels/anomaly.jpg">
-                <img class="clickable-channel" id="brownman" src="imgs/channels/brownman.jpg">
-                <img class="clickable-channel" id="ninja" src="imgs/channels/ninja.jpg">
-                <img class="clickable-channel" id="shroud" src="imgs/channels/shroud.png">
-                <img class="clickable-channel" id="soda" src="imgs/channels/soda.png">
-                <img class="clickable-channel" id="summit" src="imgs/channels/summit.jpg">
-                <img class="clickable-channel" id="tyler" src="imgs/channels/tyler.png">
-                <img class="clickable-channel" id="xqc" src="imgs/channels/xqc.jpeg">
-              </div>              
-            </div>
-            
-          </div>
-
+        </div>
+      </div>
+    </div>
+    <div class="tooltip">
+      <div class="twitch-box">
+        <input
+          type="text"
+          class="twitch-id user-input"
+          placeholder="Twitch ID"
+        />
+        <input
+          type="text"
+          class="twitch-token user-input"
+          placeholder="Twitch Token"
+        />
+      </div>
+      <div class="youtube-box">
+        <input
+          type="text"
+          class="youtube-id user-input"
+          placeholder="YouTube ID"
+        />
+        <input
+          type="text"
+          class="youtube-token user-input"
+          placeholder="YouTube Token"
+        />
       </div>
     </div>
     <div class="right-panel">
       <div class="page-mover" style="display: flex; justify-content: center">
-          <input type="text" class="title-filter user-input" placeholder="Clip Title">
-          <button id="move-left" class="scroll-page" >Scroll Left</button>
-          <button id="move-right" class="scroll-page" >Scroll Right</button>
-        </div>
-      <div class="fetched-clips" >
+        <input
+          type="text"
+          class="title-filter user-input"
+          placeholder="Clip Title"
+        />
+        <button id="move-left" class="scroll-page">Scroll Left</button>
+        <button id="move-right" class="scroll-page">Scroll Right</button>
+      </div>
+      <div class="fetched-clips">
         <div class="scroll-bg">
-			<div class="scroll" id="clip-scroller">	
-        
-			</div>
-		</div>
-
+          <div class="scroll drag-container" id="clip-scroller"></div>
+        </div>
       </div>
 
-      <div class="clip-preview">
-        <!-- <button id="move-left">Left</button>
-        <button id="move-right">Right</button> -->
+      <div class="edit-panel">
+        <div class="selected-videos drag-container"></div>
       </div>
-      
     </div>
-    <script src="scripts/clickables.js"></script>
-    <script src="scripts/init.js"></script>
-    <script src="scripts/filter.js"></script>
   </body>
 </html>

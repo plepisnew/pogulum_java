@@ -4,12 +4,6 @@
     width: 100%;
 }
 
-.clip-preview {
-    height: 50%;
-    width: 100%;
-    background: blue;
-}
-
 .scroll-bg {
     /* background: white; */
     height: 100%;
@@ -87,8 +81,4 @@
     margin-left: 4px;
     height: 20px;
     padding-top: 3px;
-}
-
-.case-sensitive {
-    background-color: black;
 }

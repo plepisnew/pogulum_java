@@ -1,0 +1,35 @@
+.tooltip {
+    position: fixed;
+    background: linear-gradient(rgb(33, 150, 243), rgb(25, 118, 210));
+    /* background: blue; */
+    right: 450px;
+    top: 150px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    height: 70px;
+    transition: width 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transition: right 0.8s;
+}
+
+.tooltip:hover {
+    right: 750px;
+}
+
+.twitch-id,
+.twitch-token,
+.youtube-id,
+.youtube-token{
+    /* margin-top: 3px; */
+    width: 120px;
+    display: inline-block;
+    font-size: 13px;
+}

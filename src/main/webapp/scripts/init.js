@@ -1,10 +1,13 @@
 // CONSTANTS & ADJUSTABLES
 
+const DEFAULT_TOKEN = 'fyu0aj0hexqkl66qukyr3rr4jthft4'
+const DEFAULT_ID = '0kvjan2jt8lf8qkhjolubt5ggih7ip'
+
 const BASE_URL = "https://api.twitch.tv/"
 const CLIP_RES = "helix/clips"
 const PROXY = "";
-const TOKEN = 'fyu0aj0hexqkl66qukyr3rr4jthft4';
-const CLIENT_ID = '0kvjan2jt8lf8qkhjolubt5ggih7ip';
+var TOKEN = 'fyu0aj0hexqkl66qukyr3rr4jthft4';
+var CLIENT_ID = '0kvjan2jt8lf8qkhjolubt5ggih7ip';
 let clip_count = 100;
 
 const DB_URL = "";
@@ -19,6 +22,10 @@ const search_button = document.getElementById("find-clips")
 const left_button = document.getElementById("move-left")
 const right_button = document.getElementById("move-right")
 
+const twitch_token_input = document.querySelector(".twitch-token")
+const twitch_id_input = document.querySelector(".twitch-id")
+const youtube_token_input = document.querySelector(".youtube-token")
+const youtube_id_input = document.querySelector(".youtube-id")
 // REST API 
 
 const REST_URL = "http://localhost:8080"
@@ -30,6 +37,16 @@ const CLIP_RESOURCE = "/api/clip"
 const USER_URL = REST_URL + USER_RESOURCE
 const GAME_URL = REST_URL + GAME_RESOURCE
 const CLIP_URL = REST_URL + CLIP_RESOURCE
+
+// ACTIONS
+
+twitch_token_input.oninput = () => {
+    TOKEN = twitch_token_input.value;
+}
+
+twitch_id_input.oninput = () => {
+    CLIENT_ID = twitch_id_input.value;
+}
 
 // USER ARGUMENTS AND PAGINATION
 
@@ -46,6 +63,9 @@ const user_args = {
 }
 
 const fetchClipsOnClick = function (){
+
+    TOKEN = TOKEN == "" ? DEFAULT_TOKEN : TOKEN;
+    CLIENT_ID = CLIENT_ID == "" ? DEFAULT_ID : CLIENT_ID;
 
     user_args.game_id = ''
     user_args.broadcaster_id = ''
@@ -125,6 +145,7 @@ const getData = (resource, params, type) => {
         .then(res => {
             const { data, pagination } = res
 
+            console.log(data)
             if(type == 'right') {
                 page.current_cursor = pagination.cursor
                 if(page.current_pointer + 1 == page.cursors.length) {
@@ -205,7 +226,7 @@ const appendClip = (clip) => {
     div.innerHTML = 
     
     `
-    <div class="object">
+    <div class="draggable object" draggable="true">
 					<div class="thumbnail-div">
 						<a href="${clip.url}" target="_blank">
                         <img src="${clip.thumbnail_url}" alt="" class="thumbnail"></a>
@@ -326,3 +347,13 @@ const httpPost = (url, body) => {
         console.log(res)
     })
 }
+
+appendClip({
+    title : "Totally legit clip",
+    url : "https://github.com/plepisnew/pogulum",
+    thumbnail_url : "https://i.natgeofe.com/k/7ce14b7f-df35-4881-95ae-650bce0adf4d/mallard-male-standing_3x2.jpg",
+    broadcaster_name : "ansishihi & E-Val & Soundharya",
+    duration : 1209600,
+    view_count : 1337,
+    id : "twitch-clip-scraper"
+})

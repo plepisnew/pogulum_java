@@ -1,0 +1,17 @@
+.edit-panel {
+    height: 50%;
+    width: 100%;
+    /* padding: 10px; */
+    /* background: linear-gradient(rgb(30, 136, 229), ) */
+    background: linear-gradient(rgb(25, 118, 210), rgb(33, 150, 243));
+}
+
+.draggable {
+    cursor: move;
+}
+
+.selected-videos {
+    margin-top: 20px;
+    background: blue;
+    display: block;
+}
