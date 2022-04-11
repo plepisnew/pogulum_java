@@ -58,6 +58,6 @@ public class Clip {
     private String video_id;
 
     @Column(name = "view_count")
-    private String view_count;
+    private Long view_count;
 
 }
