@@ -1,5 +1,4 @@
 package com.example.pogulum.util;
-import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.io.IOException;
 import java.net.URI;

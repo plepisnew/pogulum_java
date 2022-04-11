@@ -1,7 +1,6 @@
 package com.example.pogulum.services;
 
 import com.example.pogulum.model.User;
-
 import java.util.List;
 
 public interface UserService {
@@ -12,7 +11,6 @@ public interface UserService {
 
     List<User> getAllUsers();
 
-//    User updateUser(Long id, User user);
-//
-//    User deleteUser(Long id);
+    User deleteUser(Long id);
+
 }

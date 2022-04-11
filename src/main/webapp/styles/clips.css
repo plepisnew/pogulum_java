@@ -24,3 +24,71 @@
 .scroll {
     padding: 10px;
 }
+
+.scroll-page {
+    background-color: rgb(13, 71, 161);
+    color: white;
+    font-family: Rubik;
+    border: none;
+    /* border-radius: 3px; */
+    padding: 5px 20px 5px 20px;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0, 0.7);
+    cursor: pointer;
+    margin-bottom: 8px;
+    margin-top: 5px;
+    transition: opacity 0.5s;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+}
+
+#move-left {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+#move-right {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+#move-left:hover {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    opacity: 0.85;
+}
+
+#move-right:hover {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    opacity: 0.85;
+}
+
+.scroll-page:active {
+    /* box-shadow: none; */
+}
+
+.page-mover {
+    background: rgb(30, 136, 229);
+}
+
+.title-filter {
+    margin-right: 30px;
+    margin: 0;
+    padding-top: 0px;
+}
+
+.hide {
+    display: none;
+}
+
+.title-filter { 
+    margin-right: 10px;
+    margin-top: 4px;
+    margin-left: 4px;
+    height: 20px;
+    padding-top: 3px;
+}
+
+.case-sensitive {
+    background-color: black;
+}

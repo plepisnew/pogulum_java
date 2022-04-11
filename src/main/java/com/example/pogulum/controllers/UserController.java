@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    UserService userService;
+    private UserService userService;
 
     public UserController(UserService userService){
         this.userService = userService;
@@ -33,7 +33,10 @@ public class UserController {
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
-
+    @DeleteMapping("/api/user")
+    public ResponseEntity<User> deleteUserById(@RequestParam("id") Long id){
+        return new ResponseEntity<>(userService.deleteUser(id), HttpStatus.OK);
+    }
 
 
 }

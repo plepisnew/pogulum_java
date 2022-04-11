@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 public class ClipController {
 
-    ClipService clipService;
+    private ClipService clipService;
 
     public ClipController(ClipService clipService){
         this.clipService = clipService;
@@ -24,15 +24,12 @@ public class ClipController {
 
     @GetMapping("/api/clip")
     public ResponseEntity<Clip> getClipById(@RequestParam("id") String id){
-        return new ResponseEntity<>(clipService.getClip(id), HttpStatus.OK);
+        return new ResponseEntity<>(clipService.getClipById(id), HttpStatus.OK);
     }
 
     @GetMapping("/api/clips")
     public ResponseEntity<List<Clip>> getClips(){
         return new ResponseEntity<>(clipService.getAllClips(), HttpStatus.OK);
     }
-
-
-
 
 }

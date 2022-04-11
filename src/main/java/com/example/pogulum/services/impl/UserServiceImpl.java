@@ -5,7 +5,6 @@ import com.example.pogulum.model.User;
 import com.example.pogulum.repository.UserRepository;
 import com.example.pogulum.services.UserService;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -17,10 +16,8 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
-    @Override
     public User saveUser(User user){
-        userRepository.save(user);
-        return user;
+        return userRepository.save(user);
     }
 
     public User getUser(Long id){
@@ -29,6 +26,12 @@ public class UserServiceImpl implements UserService {
 
     public List<User> getAllUsers(){
         return userRepository.findAll();
+    }
+
+    public User deleteUser(Long id){
+        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+        userRepository.delete(user);
+        return user;
     }
 
 }

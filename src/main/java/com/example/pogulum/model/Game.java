@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "twitch_Game")
+@Table(name = "twitch_game")
 public class Game {
 
     @Id

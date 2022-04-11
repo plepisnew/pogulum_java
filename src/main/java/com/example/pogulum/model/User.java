@@ -14,16 +14,16 @@ import java.sql.Date;
 public class User {
 
     @Column(name="broadcaster_type")
-    private String broadcasterType;
+    private String broadcaster_type;
 
     @Column(name="created_at")
-    private Date createdAt;
+    private Date created_at;
 
     @Column(name="description")
     private String description;
 
     @Column(name="display_name")
-    private String displayName;
+    private String display_name;
 
     @Id
     private long id;
@@ -32,10 +32,10 @@ public class User {
     private String login;
 
     @Column(name="offline_image")
-    private String offlineImage;
+    private String offline_image_url;
 
     @Column(name="profile_image")
-    private String profileImage;
+    private String profile_image_url;
 
     @Column(name="account_type")
     private String type;

@@ -1,4 +1,5 @@
 package com.example.pogulum.services.impl;
+import com.example.pogulum.exceptions.ClipNotFoundException;
 import com.example.pogulum.exceptions.UserNotFoundException;
 import com.example.pogulum.model.Clip;
 import com.example.pogulum.repository.ClipRepository;
@@ -23,13 +24,19 @@ public class ClipServiceImpl implements ClipService {
         return clip;
     }
 
-    public Clip getClip(String id) {
-         return clipRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+    public Clip getClipById(String id) {
+         return clipRepository.findById(id).orElseThrow(() -> new ClipNotFoundException(id));
 
     }
 
     public List<Clip> getAllClips() {
         return clipRepository.findAll();
+    }
+
+    public Clip deleteClipById(String id) {
+        Clip clip = clipRepository.findById(id).orElseThrow(() -> new ClipNotFoundException(id));
+        clipRepository.delete(clip);
+        return clip;
     }
 }
 

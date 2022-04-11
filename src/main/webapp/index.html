@@ -17,7 +17,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body style="overflow: hidden;">
     <div class="left-panel">
       <div class="icon-container">
         <img class="icon-image" src="imgs/tcs.png" />
@@ -92,92 +92,32 @@
             </div>
             
           </div>
-          <script src="scripts/clickables.js"></script>
-          <script src="scripts/init.js"></script>
 
       </div>
     </div>
     <div class="right-panel">
-      
-      <div class="fetched-clips">
+      <div class="page-mover" style="display: flex; justify-content: center">
+          <input type="text" class="title-filter user-input" placeholder="Clip Title">
+          <button id="move-left" class="scroll-page" >Scroll Left</button>
+          <button id="move-right" class="scroll-page" >Scroll Right</button>
+        </div>
+      <div class="fetched-clips" >
         <div class="scroll-bg">
-			<div class="scroll" id="clip-scroller">
-
-				<!-- <div class="object">
-					<div class="thumbnail-div">
-						<img src="https://clips-media-assets2.twitch.tv/AT-cm%7C1232560983-preview-480x272.jpg" alt="" class="thumbnail">
-					</div>
-					<div class="clip-metadata">
-						<p class="clip-title">KNIEV ASO VA</p>
-						<p class="view-count">&middot; 691337 views
-						</p>
-						<p class="clip-author">Streamed by Anomaly &middot; Duration: 68 s</p>
-						<p class="clip-id">Clip ID: KEK</p>
-					</div>
-
-					<style>
-						.object {
-							overflow: hidden;
-							background: black;
-							margin-bottom: 10px;
-							border-radius: 7px;
-							box-shadow: 0px 0px 3px rgb(0, 0, 0, 0.9);
-						}
-						.thumbnail {
-							height: 66px;
-							vertical-align: top;
-						}
-						.thumbnail-div {
-							display: inline-block;
-							overflow: hidden;
-							vertical-align: top;
-						}
-						.clip-metadata {
-							margin-left: -4px;
-							padding-left: 4px;
-							padding-top: 3px;
-							padding-bottom: 3px;
-							height: 60px;
-							border-left: 1px solid black;
-							display: inline-block;
-							vertical-align: top;
-						}
-						.clip-title,
-						.view-count,
-						.clip-author,
-						.clip-id {
-							font-family: Rubik;
-							color: white;
-							font-weight: 200;
-						}
-
-						.clip-title {
-							display: inline-block;
-							font-weight: 500;
-						}
-						.view-count {
-							display: inline-block;
-						}
-						.clip-author {
-						}
-						.clip-id {
-						}
-					</style>
-				</div> -->
-				
-				
-
-				
-
+			<div class="scroll" id="clip-scroller">	
+        
 			</div>
 		</div>
 
       </div>
 
       <div class="clip-preview">
-
+        <!-- <button id="move-left">Left</button>
+        <button id="move-right">Right</button> -->
       </div>
       
     </div>
+    <script src="scripts/clickables.js"></script>
+    <script src="scripts/init.js"></script>
+    <script src="scripts/filter.js"></script>
   </body>
 </html>
