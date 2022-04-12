@@ -143,7 +143,7 @@ const getData = (resource, params, type) => {
         .then(res => {
             const { data, pagination } = res
 
-            console.log(data)
+            // console.log(data)
             if(type == 'right') {
                 page.current_cursor = pagination.cursor
                 if(page.current_pointer + 1 == page.cursors.length) {
@@ -246,6 +246,8 @@ const appendClip = (clip) => {
 							box-shadow: 0px 0px 3px rgb(0, 0, 0, 0.9);
                             width: 95%;
                             transition: width 0.5s;
+                            display: grid;
+                            grid-template-columns: auto 1fr;
 						}
                         .object:hover {
                             width: 100%;
@@ -258,21 +260,21 @@ const appendClip = (clip) => {
 							display: inline-block;
 							overflow: hidden;
 							vertical-align: top;
+                            border-right: 1px solid black;
 						}
 						.clip-metadata {
-							margin-left: -4px;
-							padding-left: 4px;
 							padding-top: 3px;
 							padding-bottom: 3px;
 							height: 60px;
-							border-left: 1px solid black;
+							margin-left: 5px;
 							display: inline-block;
 							vertical-align: top;
-                            width: 80%;
+                            
                             overflow-y: scroll;
 						}
                         .clip-metadata::-webkit-scrollbar {
                             display: none;
+
                         }
 
 						.clip-title,
@@ -344,9 +346,6 @@ const setDraggables = () => {
     const draggables = document.querySelectorAll(".draggable")
     const containers = document.querySelectorAll(".drag-container")
 
-    console.log(draggables)
-    console.log(containers)
-
     draggables.forEach(draggable => {
         draggable.addEventListener("dragstart", () => {
             draggable.classList.add("dragging")
@@ -362,15 +361,16 @@ const setDraggables = () => {
             e.preventDefault()
             const draggable = document.querySelector(".dragging")
             const afterElement = getDragAfterElement(container, e.clientY)
+            draggable.querySelector(".thumbnail-div").classList.add("stringed-thumbnail")
             if(container == containers[0]){
                 draggable.classList.remove("stringed-clips")
             }else{
-                console.log("Adding to stringed")
                 draggable.classList.add("stringed-clips")
             }
             if(afterElement == null) {
                 container.appendChild(draggable)
             }else{
+                console.log
                 container.insertBefore(draggable, afterElement)
             }
         })
