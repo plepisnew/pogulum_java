@@ -32,6 +32,11 @@ public class UserController {
     public ResponseEntity<List<User>> getUsers(){
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
+     @PutMapping("/api/user")
+    public ResponseEntity<User> updateUser(@RequestBody User user){
+        return new ResponseEntity<>(userService.saveUser(user), HttpStatus.OK);
+    }
+
 
     @DeleteMapping("/api/user")
     public ResponseEntity<User> deleteUserById(@RequestParam("id") Long id){

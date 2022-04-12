@@ -31,5 +31,14 @@ public class ClipController {
     public ResponseEntity<List<Clip>> getClips(){
         return new ResponseEntity<>(clipService.getAllClips(), HttpStatus.OK);
     }
+     @PutMapping("/api/clip")
+    public ResponseEntity<Clip> updateClip(@RequestBody Clip clip){
+    return new ResponseEntity<>(clipService.saveClip(clip), HttpStatus.OK);
+        }
+    
+     @DeleteMapping("/api/clip")
+    public ResponseEntity<Clip> deleteClipById(@RequestParam("id") String id){
+        return new ResponseEntity<>(clipService.deleteClipById(id), HttpStatus.OK);
+    }
 
 }
