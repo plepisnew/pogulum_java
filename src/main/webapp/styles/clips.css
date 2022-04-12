@@ -82,3 +82,7 @@
     height: 20px;
     padding-top: 3px;
 }
+
+.clip-scroller {
+    height: 100%;
+}

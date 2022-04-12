@@ -8,7 +8,7 @@ const CLIP_RES = "helix/clips"
 const PROXY = "";
 var TOKEN = 'fyu0aj0hexqkl66qukyr3rr4jthft4';
 var CLIENT_ID = '0kvjan2jt8lf8qkhjolubt5ggih7ip';
-let clip_count = 100;
+let clip_count = 50;
 
 const DB_URL = "";
 
@@ -85,10 +85,8 @@ const fetchClipsOnClick = function (){
         .then(() => getClipSuffix(user_args))
         .then(params => getData(CLIP_RES, params, 'normal'))
         .then(arr => arr.filter(matchesInput))
-        .then(arr => arr.forEach(el => {
-            appendClip(el)
-        }
-            ))
+        .then(arr => appendClips(arr))
+    
 }
 
 const matchesInput = function (clip) {
@@ -226,7 +224,7 @@ const appendClip = (clip) => {
     div.innerHTML = 
     
     `
-    <div class="draggable object" draggable="true">
+    <div class="object draggable" draggable="true">
 					<div class="thumbnail-div">
 						<a href="${clip.url}" target="_blank">
                         <img src="${clip.thumbnail_url}" alt="" class="thumbnail"></a>
@@ -311,10 +309,7 @@ left_button.onclick = () => {
     getClipSuffix(user_args)
         .then(params => getData(CLIP_RES, params, 'left'))
         .then(arr => arr.filter(matchesInput))
-        .then(arr => arr.forEach(el => {
-            appendClip(el)
-        }
-            ))
+        .then(arr => appendClips(arr))
 }
 
 right_button.onclick = () => {
@@ -323,10 +318,7 @@ right_button.onclick = () => {
     getClipSuffix(user_args)
         .then(params => getData(CLIP_RES, params, 'right'))
         .then(arr => arr.filter(matchesInput))
-        .then(arr => arr.forEach(el => {
-            appendClip(el)
-        }
-            ))
+        .then(arr => appendClips(arr))
 }
 
 const httpPost = (url, body) => {
@@ -346,6 +338,63 @@ const httpPost = (url, body) => {
         console.log("Response:")
         console.log(res)
     })
+}
+
+const setDraggables = () => {
+    const draggables = document.querySelectorAll(".draggable")
+    const containers = document.querySelectorAll(".drag-container")
+
+    console.log(draggables)
+    console.log(containers)
+
+    draggables.forEach(draggable => {
+        draggable.addEventListener("dragstart", () => {
+            draggable.classList.add("dragging")
+        })
+
+        draggable.addEventListener("dragend", () => {
+            draggable.classList.remove("dragging")
+        })
+    })
+
+    containers.forEach(container => {
+        container.addEventListener("dragover", e => {
+            e.preventDefault()
+            const draggable = document.querySelector(".dragging")
+            const afterElement = getDragAfterElement(container, e.clientY)
+            if(container == containers[0]){
+                draggable.classList.remove("stringed-clips")
+            }else{
+                console.log("Adding to stringed")
+                draggable.classList.add("stringed-clips")
+            }
+            if(afterElement == null) {
+                container.appendChild(draggable)
+            }else{
+                container.insertBefore(draggable, afterElement)
+            }
+        })
+    })
+
+    function getDragAfterElement(container, y) {
+        const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
+
+        return draggableElements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect()
+            const offset = y - box.top - box.height / 2
+            if(offset < 0 && offset > closest.offset) {
+                return { offset: offset, element: child }
+            }else {
+                return closest
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element
+
+    }
+}
+
+const appendClips = (arr) => {
+    arr.forEach(clip => appendClip(clip))
+    setDraggables()
 }
 
 appendClip({

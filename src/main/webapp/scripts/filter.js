@@ -9,7 +9,7 @@ const caseSensitive = false
 const title_input = document.querySelector(".title-filter")
 
 title_input.oninput = () => {
-    const objectElements = document.getElementsByClassName("object")
+    const objectElements = document.querySelectorAll(".object:not(.stringed-clips)")
     var filterables = [...objectElements]
     filterables.forEach(element => {
         element.classList.remove("hide")
