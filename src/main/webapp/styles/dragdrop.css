@@ -1,32 +1,29 @@
 .edit-panel {
     height: 40%;
-    width: 80%;
+    /* width: 80%; */
+    width: 100%;
     margin-left: 10px;
-    /* padding: 10px; */
-    /* background: rgb(30, 136, 229); */
-    /* background: black; */
+    display: inline-block;
 }
 
 .draggable {
     cursor: move;
 }
 
+.draggable.dragging {
+    opacity: 0.5;
+}
+
 .selected-videos {
-    /* margin-top: 10px; */
-    /* background: blue; */
-    width: 100%;
+    width: 80%;
     height: 100%;
     overflow-y: scroll;
+    display: inline-block;
 }
 
 .selected-videos::-webkit-scrollbar{
     display: none;
 }
-
-.draggable.dragging {
-    opacity: 0.5;
-}
-
 .divider {
     width: 100%;
     /* height: 5%; */
@@ -39,11 +36,35 @@
 
 .stringed-clips {
     font-size: 14px;
-    /* width: 100%; */
+    width: 100%;
 }
 
-.stringed-thumbnail {
-    
+.buttons {
+    display: inline-block;
+    vertical-align: top;
 }
 
+.download {
+    margin-left: 5px;
+    margin-top: 10px;
+    font-family: Rubik;
+    border-radius: 2px;
+    font-size: 18px;
+    border: none;
+    background-color: rgb(57, 73, 171);
+    color: white;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 2px 2px 4px rgb(0, 0, 0, 0.6);
+    transition: opacity 0.4s;
+    width: 120px;
+}
 
+.download:hover {
+    opacity: 0.8;
+}
+
+.download:active {
+    box-shadow: 1px 1px 4px rgb(0, 0, 0, 0.6);
+}

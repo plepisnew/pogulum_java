@@ -25,3 +25,12 @@ p{
     right: 0;
 }
 
+.left-panel,
+.right-panel,
+.fetched-clips {
+    border: 1px solid rgb(13, 71, 161);
+}
+.fetched-clips {
+    border-left: none;
+}
+
