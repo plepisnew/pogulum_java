@@ -31,6 +31,10 @@ public class GameController {
     public ResponseEntity<List<Game>> getGames(){
         return new ResponseEntity<>(gameService.getAllGames(), HttpStatus.OK);
     }
+     @PutMapping("/api/game")
+public ResponseEntity<Game> updateGame(@RequestBody Game game){
+        return new ResponseEntity<>(gameService.saveGame(game), HttpStatus.OK);
+    }
 
     @DeleteMapping("/api/game")
     public ResponseEntity<Game> deleteGameById(@RequestParam("id") Long id){
