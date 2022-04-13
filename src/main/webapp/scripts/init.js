@@ -323,6 +323,17 @@ right_button.onclick = () => {
         .then(arr => appendClips(arr))
 }
 
+document.querySelector(".download.video").onclick = () => {
+    const stringedClips = [...document.querySelectorAll(".stringed-clips")]
+    stringedClips.forEach(clip => {
+        // clip.children[1].children[3].innerText.split('Clip ID: ')[1]
+        let source_image = clip.querySelector('.thumbnail').getAttribute('src')
+        let source_id = source_image.split('.tv/')[1].split('-preview')[0]
+        let source = `https://clips-media-assets2.twitch.tv/${source_id}.mp4`
+        console.log(source)
+    })
+}
+
 const httpPost = (url, body) => {
     console.log("POST " + url)
     console.log(body)
