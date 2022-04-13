@@ -7,7 +7,7 @@ Pogulum is a free and open-source online Twitch clip scraper, which interacts wi
 -
 - [x] Fetch clips from the Twitch API
 - [x] Display clips and move using pagination
-- [ ] Drag-and-drop clips to create a final video
+- [x] Drag-and-drop clips to create a final video
 - [ ] Download final video locally
 - [ ] Upload final clip to YouTube
 - [ ] Upload final clip to TikTok
