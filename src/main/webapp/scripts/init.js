@@ -28,7 +28,7 @@ const youtube_token_input = document.querySelector(".youtube-token")
 const youtube_id_input = document.querySelector(".youtube-id")
 // REST API 
 
-const REST_URL = "http://localhost:8080"
+const REST_URL = "http://localhost:5000"
 
 const USER_RESOURCE = "/api/user"
 const GAME_RESOURCE = "/api/game"
