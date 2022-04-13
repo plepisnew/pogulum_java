@@ -28,7 +28,7 @@ const youtube_token_input = document.querySelector(".youtube-token")
 const youtube_id_input = document.querySelector(".youtube-id")
 // REST API 
 
-const REST_URL = "http://localhost:5000"
+const REST_URL = "http://pogulum-env.eba-pa8ak5bb.eu-north-1.elasticbeanstalk.com"
 
 const USER_RESOURCE = "/api/user"
 const GAME_RESOURCE = "/api/game"
