@@ -2,6 +2,7 @@ Pogulum: Twitch Clip Scraper 📹
 -
 ![tcs](assets/tcs.png)
 Pogulum is a free and open-source online Twitch clip scraper, which interacts with the [Twitch API](https://dev.twitch.tv/docs/api/) to fetch clips based on user-selected filters and the [YouTube Data API](https://developers.google.com/youtube/v3) to upload concatenated clips directly to YouTube OR download it as an .mp4 file.
+Visit it here: [Elastic Beanstalk](http://pogulum-env.eba-pa8ak5bb.eu-north-1.elasticbeanstalk.com/home) or [Custom Domain](http://plepis.me)
 
 [Status](https://github.com/plepisnew/pogulum/wiki/Status) 📄
 -
