@@ -54,7 +54,7 @@ Resources:
 > Q: I selected a Game and User but it didn't find any clips :(  
 > A: The Twitch API, when fetching clips, doesn't allow parameters for both games and users, so our API fetches clips according to whichever input comes first and filters the results based on the second input (if any). If you scroll to the right, you will eventually find a set of clips where at least one matches both filters and will be displayed.
 
-> Q: It still can't find any clips :/
+> Q: It still can't find any clips :/  
 > A: When sending requests to the Twitch API, User Credentials (auth details) must be provided in the request header, specifically an App Access Token and Client ID, which have expiry dates. Currently these values are hard-coded, but you can enter your own Client ID and Token in the expandable tooltip in order to bypass these values. More on [Twitch Auth](https://dev.twitch.tv/docs/api/)
 
 [Contact Devs](https://github.com/plepisnew/pogulum/wiki/Contact) ✉️
